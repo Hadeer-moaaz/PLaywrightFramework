@@ -6,4 +6,7 @@ module.exports = {
     format: ['progress', 'html:reports/cucumber-report.html'],
     publishQuiet: true,
   },
+  smoke: {
+    tags: '@smoke',
+  },
 };

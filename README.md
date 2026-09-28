@@ -14,7 +14,7 @@
 - `npm run test:smoke` runs scenarios tagged `@smoke`.
 - `npm run test:playwright` runs the existing Playwright Test suite.
 
-Cucumber writes the HTML report to `reports/cucumber-report.html`. The `reports/` directory is ignored by Git except for its placeholder file.
+Cucumber configuration and profiles are defined in `cucumber.js`. Cucumber writes the HTML report to `reports/cucumber-report.html`. The `reports/` directory is ignored by Git except for its placeholder file.
 
 ## Project layout
 

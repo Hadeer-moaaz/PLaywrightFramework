@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:bdd": "cucumber-js",
-    "test:smoke": "cucumber-js --tags @smoke",
+    "test:bdd": "cucumber-js --config cucumber.js",
+    "test:smoke": "cucumber-js --config cucumber.js --profile default --profile smoke",
     "test:playwright": "playwright test"
   },
   "keywords": [],
