@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:bdd": "cucumber-js",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "test:playwright": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@cucumber/cucumber": "^13.2.1",
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.3"
+    "@types/node": "^26.6.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
