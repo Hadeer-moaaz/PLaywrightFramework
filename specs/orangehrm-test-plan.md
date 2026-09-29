@@ -55,7 +55,7 @@ Test plan for the OrangeHRM Open Source demo (OS 5.9) at https://opensource-demo
 **File:** `tests/pim/employee-search-reset.spec.ts`
 
 **Steps:**
-  1. Sign in with the demo account and open PIM > Employee List.
+  1. login and open PIM > Employee List.
     - expect: Employee Information filters and the employee results table are visible.
   2. Search using a known employee name or ID available in the current demo data.
     - expect: Search results match the entered employee criteria and the table reports the corresponding result count.

@@ -3,31 +3,41 @@ import type { Page } from '@playwright/test';
 export class LoginPage {
   constructor(readonly page: Page) {}
 
+  // locators
   get usernameInput() {
-    return this.page.locator('input[name="username"]');
+    return this.page.getByPlaceholder('Username');
   }
 
   get passwordInput() {
-    return this.page.locator('input[name="password"]');
+    return this.page.getByPlaceholder('Password');
   }
 
   get loginButton() {
     return this.page.getByRole('button', { name: 'Login' });
   }
 
-  get loginHeading() {
+  get loginLogo() {
     return this.page.getByRole('heading', { name: 'Login' });
   }
 
-  get dashboardHeading() {
+  get requiredFieldMessages() {
+    return this.page.locator('.oxd-input-field-error-message').first();
+  }
+
+  // get requiredFieldMessages() {
+  //   return this.page.getByText('Required');
+  // }
+
+  get dashboardLogo() {
     return this.page.getByRole('heading', { name: 'Dashboard' });
   }
 
-  get requiredFieldMessages() {
-    return this.page.locator('.oxd-input-field-error-message');
+  get errorMessage(){
+    return this.page.getByText('Invalid credentials');
   }
-
-  async open(baseUrl: string) {
+  
+  // funtions
+  async navigateTo(baseUrl: string) {
     await this.page.goto(baseUrl);
   }
 

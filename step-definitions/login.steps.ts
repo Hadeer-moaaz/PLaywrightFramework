@@ -3,33 +3,37 @@ import { expect } from '@playwright/test';
 import loginData from '../test-data/login.json';
 import type { CustomWorld } from '../support/world';
 
-Given('I am on the OrangeHRM login page', async function (this: CustomWorld) {
-  await this.loginPage.open(loginData.baseUrl);
+Given('User navigates to OrangeHRM login page', async function (this: CustomWorld) {
+  await this.loginPage.navigateTo(`${loginData.baseUrl}/auth/login`);
 });
 
-When('I sign in with the valid demo account', async function (this: CustomWorld) {
+When('User login with a valid credentials', async function (this: CustomWorld) {
   await this.loginPage.submitCredentials(loginData.username, loginData.password);
 });
 
-When(
-  'I submit the login form with username {string} and password {string}',
+When('User submit the login with username {string} and password {string}',
   async function (this: CustomWorld, username: string, password: string) {
     await this.loginPage.submitCredentials(username, password);
   },
 );
 
-Then('I should see the dashboard', async function (this: CustomWorld) {
-  await expect(this.loginPage.dashboardHeading).toBeVisible();
+Then('The dashboard is displayed', async function (this: CustomWorld) {
+  await expect(this.loginPage.page).toHaveURL(`${loginData.baseUrl}/dashboard/index`);
+  await expect(this.loginPage.dashboardLogo).toBeVisible();
 });
 
-Then('I should remain on the login page', async function (this: CustomWorld) {
-  await expect(this.loginPage.page).toHaveURL(/\/web\/index\.php\/auth\/login$/);
-  await expect(this.loginPage.loginHeading).toBeVisible();
+Then('User should remain on the login page', async function (this: CustomWorld) {
+  await expect(this.loginPage.page).toHaveURL(`${loginData.baseUrl}/auth/login`);
+  await expect(this.loginPage.loginLogo).toBeVisible();
 });
 
-Then(
-  'I should see {int} required-field messages',
-  async function (this: CustomWorld, requiredCount: number) {
-    await expect(this.loginPage.requiredFieldMessages).toHaveCount(requiredCount);
+Then('User should see required-field message is displayed',
+  async function (this: CustomWorld) {
+    await expect(this.loginPage.requiredFieldMessages).toHaveText('Required', { timeout: 5000 });
+  },
+);
+
+Then('Invalid credentials error message is displayed',async function (this: CustomWorld) {
+    await expect(this.loginPage.errorMessage).toContainText('Invalid credentials', { timeout: 5000 });
   },
 );

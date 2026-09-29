@@ -1,0 +1,27 @@
+{
+  "cucumberautocomplete.steps": [
+    "step-definitions/**/*.ts"
+  ],
+  "cucumberautocomplete.syncfeatures": "features/**/*.feature",
+  "cucumberautocomplete.strictGherkinCompletion": true,
+  "cucumberautocomplete.strictGherkinValidation": true,
+  "cucumberautocomplete.smartSnippets": true,
+  "cucumberautocomplete.stepsInvariants": true,
+  "cucumberautocomplete.customParameters": [],
+  "cucumberautocomplete.skipDocStringsFormat": true,
+  "cucumberautocomplete.formatConfOverride": {
+    "Feature": "0",
+    "Scenario": "1",
+    "Scenario Outline": "1",
+    "Background": "1",
+    "Given": "2",
+    "When": "2",
+    "Then": "2",
+    "And": "2",
+    "But": "2"
+  },
+  "cucumberautocomplete.onTypeFormat": true,
+  "[gherkin]": {
+    "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+  }
+}
