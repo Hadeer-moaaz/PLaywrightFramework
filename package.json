@@ -6,7 +6,10 @@
   "scripts": {
     "test:bdd": "cucumber-js --config cucumber.js",
     "test:smoke": "cucumber-js --config cucumber.js --profile default --profile smoke",
-    "test:playwright": "playwright test"
+    "test:playwright": "playwright test",
+    "cucumberRegression": "npx cucumber-js --tags \"@Regression\" --retry 1 --exit --format html:cucumber-report.html",
+    "cucumberSmoke": "npx cucumber-js --tags \"@Smoke\" --retry 1 --exit --format html:cucumber-report.html",
+    "cucumberSanity": "npx cucumber-js --tags \"@Sanity\" --retry 1 --exit --format html:cucumber-report.html"
   },
   "keywords": [],
   "author": "",
@@ -20,3 +23,4 @@
     "typescript": "^5.9.3"
   }
 }
+
