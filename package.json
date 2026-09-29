@@ -9,7 +9,9 @@
     "test:playwright": "playwright test",
     "cucumberRegression": "npx cucumber-js --tags \"@Regression\" --retry 1 --exit --format html:cucumber-report.html",
     "cucumberSmoke": "npx cucumber-js --tags \"@Smoke\" --retry 1 --exit --format html:cucumber-report.html",
-    "cucumberSanity": "npx cucumber-js --tags \"@Sanity\" --retry 1 --exit --format html:cucumber-report.html"
+    "cucumberSanity": "npx cucumber-js --tags \"@Sanity\" --retry 1 --exit --format html:cucumber-report.html",
+    "cucumberSmoke2": "npx cucumber-js --tags \"@Smoke\" --retry 1 --exit --format html:cucumber-report.html",
+    "cucumberSanity2": "npx cucumber-js --tags \"@Sanity\" --retry 1 --exit --format html:cucumber-report.html"
   },
   "keywords": [],
   "author": "",
