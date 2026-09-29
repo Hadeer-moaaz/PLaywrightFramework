@@ -20,7 +20,7 @@ Feature: OrangeHRM authentication
       |          |          |
       | Admin    |          | 
       |          | admin123 |
-@Regression
+@Smoke
   Scenario Outline: Login with an invalid credentials
     Given User navigates to OrangeHRM login page
     When User submit the login with username "<username>" and password "<password>"

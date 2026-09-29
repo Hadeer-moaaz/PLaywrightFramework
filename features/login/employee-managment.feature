@@ -1,6 +1,6 @@
 Feature: 
 
-@Regression @smoke
+ @Regression
     Scenario Outline: Login and search for an existing employee in the Employee List page.
     Given User navigates to OrangeHRM login page
     When User login with a valid credentials
@@ -15,7 +15,7 @@ Feature:
       | employeename |
       | hugo hernandez |   
 
-@Regression
+@smoke
  Scenario Outline: Login and search for an non-existing employee in the Employee List page.
     Given User navigates to OrangeHRM login page
     When User login with a valid credentials
@@ -29,7 +29,7 @@ Feature:
       | employeename |
       | aaaaa |  
 
-@Regression @smoke
+@Sanity
 Scenario Outline: Create a new employee and verify it is displayed in the Employee List page.
     Given User navigates to OrangeHRM login page
     When User login with a valid credentials
