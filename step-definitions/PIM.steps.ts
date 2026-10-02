@@ -12,25 +12,6 @@ Then('Click on Employee List Tab', async function (this: CustomWorld) {
   await this.PIMPage.EmployeeListTab.click();
 });
 
-Then('Search with an existing employee name {string} in the Employee List', 
-    async function (this: CustomWorld, employeeName: string) {
-  await this.PIMPage.searchEmployee(employeeName);
-});
-
-
-Then('Check that the search results matchs the entered employee value {string}'
-    , async function (this: CustomWorld, employeeName: string) {
-  await this.PIMPage.verifyEmployeeInSearchResults(employeeName);
-});
-
-Then('Search with non-existing employee name {string} in the Employee List', async function (this: CustomWorld, employeeName: string) {
-  await this.PIMPage.searchEmployee(employeeName);
-});
-
-Then('No records found message is displayed in the search results', async function (this: CustomWorld) {
-    await this.PIMPage.verifyNoRecordsFoundIsDisplayed();
-});
-
 Then('Click on Add Employee button and assert the Add Employee tab is selected', async function (this: CustomWorld) {
     await this.PIMPage.clickAddEmployeeButton();
     await expect(this.PIMPage.addEmployeeTab).toBeVisible();
@@ -40,3 +21,26 @@ When('Fill the employee details {string} and {string} and {string} and click on 
     , async function (this: CustomWorld, firstName: string, lastName: string, employeeId: string) {
     await this.PIMPage.createEmployeeSteps(firstName, lastName, employeeId);
 });
+
+Then('Search with an existing employee name {string} in the Employee List', 
+    async function (this: CustomWorld, employeeName: string) {
+  await this.PIMPage.searchEmployeeIsExisting(employeeName);
+});
+
+Then('Check that the search results matchs the entered employee value {string}'
+    , async function (this: CustomWorld, firstname: string) {
+  await this.PIMPage.verifyEmployeeInSearchResults(firstname);
+});
+
+
+Then('Search with non-existing employee name {string} in the Employee List'
+  , async function (this: CustomWorld, employeeName: string) {
+  await this.PIMPage.searchEmployeeNonExisting(employeeName);
+});
+
+Then('No records found message is displayed in the search results', async function (this: CustomWorld) {
+    await this.PIMPage.verifyNoRecordsFoundIsDisplayed();
+});
+
+
+

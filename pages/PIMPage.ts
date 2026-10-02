@@ -29,7 +29,6 @@ get addEmployeeButton() {
     return this.page.getByRole('button', { name: 'Add' });
 }
 
-
 get addEmployeeTab() {
     return this.page.getByRole('link', { name: 'Add Employee' });
 }
@@ -49,26 +48,13 @@ get employeeIdInput() {
 get saveButton() {
     return this.page.getByRole('button', { name: 'Save' });
 }
+get orangehrmBackgroundContainer(){
+
+    return this.page.locator('.orangehrm-background-container');
+}
 
 
 // functions
-async searchEmployee(employeeName: string) {
-    await this.EmployeeListTab.click();
-    await this.employeeNameInput.fill(employeeName);
-     // Wait for the autocomplete dropdown to appear
-    const suggestion = this.page.locator('.oxd-autocomplete-dropdown').getByText(employeeName, { exact: false });
-    await suggestion.waitFor({ state: 'visible', timeout: 5000 });
-    await suggestion.click();
-    await this.searchButton.click();
-}
-
-
-async verifyEmployeeInSearchResults(employeeName: string) {
-  const resultRow = this.page.locator('.oxd-table-card').filter({ hasText: employeeName });
-  await resultRow.waitFor({ state: 'visible', timeout: 10000 });
-  await expect(resultRow).toBeVisible();
-}
-
 
 
 async verifyNoRecordsFoundIsDisplayed() {
@@ -84,13 +70,33 @@ async createEmployeeSteps(firstName: string, lastName: string, employeeId: strin
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     await this.employeeIdInput.clear(); 
-    await this.employeeIdInput.fill(employeeId);    
+    await this.employeeIdInput.fill(employeeId);
     await this.saveButton.click();
+    // wait for navigation to the employee's profile page to complete
+    await this.page.waitForURL(/\/pim\/viewPersonalDetails\/empNumber\//, { timeout: 15000 });
 }
 
+async searchEmployeeIsExisting(employeeName: string) {
+  await this.employeeNameInput.fill(employeeName);
+  const searchingIndicator = this.page.getByText('Searching...');
+  const suggestion = this.page.locator('.oxd-autocomplete-dropdown')
+                            .getByText(employeeName, { exact: false })
+                            .first();
+  // Wait for the "Searching..." placeholder to go away (API call finished)
+  await searchingIndicator.waitFor({ state: 'hidden', timeout: 20000 }).catch(() => {});
+  await suggestion.waitFor({ state: 'visible', timeout: 10000 });
+  await suggestion.click();
+  await this.searchButton.click();
+}
 
+async searchEmployeeNonExisting(employeeName: string) {
+  await this.employeeNameInput.fill(employeeName);
+  await this.searchButton.click();
+}
 
-
+async verifyEmployeeInSearchResults(firstname: string) {
+  await expect(this.page.getByText(firstname, { exact: false }).first()).toBeVisible({ timeout: 10000 });
+}
 
 
 

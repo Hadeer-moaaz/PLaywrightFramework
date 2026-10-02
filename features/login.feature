@@ -3,7 +3,7 @@ Feature: OrangeHRM authentication
   I want to login with valid credentials
   So that I can access the employee dashboard
 
-  @Regression
+@smoke
   Scenario: Login with a valid credentials
     Given User navigates to OrangeHRM login page
     When User login with a valid credentials
@@ -20,7 +20,8 @@ Feature: OrangeHRM authentication
       |          |          |
       | Admin    |          | 
       |          | admin123 |
-@Smoke
+
+@smoke
   Scenario Outline: Login with an invalid credentials
     Given User navigates to OrangeHRM login page
     When User submit the login with username "<username>" and password "<password>"

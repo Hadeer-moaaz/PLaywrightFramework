@@ -11,7 +11,7 @@ export class CustomWorld extends World {
   loginPage!: LoginPage;
   dashboardPage!: dashboardPage;
   PIMPage!: PIMPage;
-
+  
   constructor(options: IWorldOptions) {
     super(options);
   }
