@@ -69,7 +69,7 @@ Test plan for the OrangeHRM Open Source demo (OS 5.9) at https://opensource-demo
 **File:** `tests/pim/add-employee-required-fields.spec.ts`
 
 **Steps:**
-  1. Sign in with the demo account and open PIM > Add Employee.
+  1. Sign in and open PIM > Add Employee.
     - expect: The Add Employee form shows First Name, Middle Name, Last Name, Employee Id, a Create Login Details option, and Save/Cancel actions.
   2. Leave First Name and Last Name empty and select Save.
     - expect: The form remains open and Required feedback is shown for First Name and Last Name.
