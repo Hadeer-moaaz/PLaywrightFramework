@@ -15,36 +15,28 @@ get employeeNameInput(){
 
     return this.page.getByPlaceholder('Type for hints...').first();
 }
-
 get searchButton(){
 
     return this.page.getByRole('button', { name: 'Search' });
 }
-
 get noRecordsMessage() {
   return this.page.getByText('No Records Found').first();
 }
-
 get addEmployeeButton() {
     return this.page.getByRole('button', { name: 'Add' });
 }
-
 get addEmployeeTab() {
     return this.page.getByRole('link', { name: 'Add Employee' });
 }
-
 get firstNameInput() {
     return this.page.getByPlaceholder('First Name');
 }
-
 get lastNameInput() {
     return this.page.getByPlaceholder('Last Name');
 }
-
 get employeeIdInput() {
     return this.page.locator('.oxd-input').nth(4);
 }
-
 get saveButton() {
     return this.page.getByRole('button', { name: 'Save' });
 }
@@ -52,11 +44,27 @@ get orangehrmBackgroundContainer(){
 
     return this.page.locator('.orangehrm-background-container');
 }
+get resetButton() {
+    return this.page.getByRole('button', { name: 'Reset' });
+}
 
+get recordsCount(){
+    return this.page.locator('span.oxd-text--span', { hasText: 'Records Found' });
+}
+
+get deleteCheckbox() {
+    return this.page.locator('.oxd-checkbox-input .oxd-icon').first();
+}
+
+get deleteSelectedButton() {
+    return this.page.getByRole('button', { name: 'Delete Selected' });
+}
+
+get confirmDeleteButton() {
+    return this.page.getByRole('button', { name: 'Yes, Delete' });
+}   
 
 // functions
-
-
 async verifyNoRecordsFoundIsDisplayed() {
   await expect(this.noRecordsMessage).toBeVisible({ timeout: 5000 });
 }
@@ -99,7 +107,9 @@ async verifyEmployeeInSearchResults(firstname: string) {
 }
 
 
+async clickResetButton() {
+    await this.resetButton.click();
+    await expect(this.orangehrmBackgroundContainer).toBeVisible({ timeout: 10000 });
 
-
-}
+}}
 

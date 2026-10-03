@@ -33,6 +33,59 @@ Then('Check that the search results matchs the entered employee value {string}'
 });
 
 
+When('Click on Reset button', async function (this: CustomWorld) {
+  await this.PIMPage.clickResetButton();
+});
+
+
+Then('Verify that the employee name search field is cleared', async function (this: CustomWorld) {
+  await expect(this.PIMPage.employeeNameInput).toHaveValue('');
+});
+
+
+Then('Print all the Records count in the Employee List page after Reset button is clicked'
+  , async function (this: CustomWorld) {
+
+    const text = await this.PIMPage.recordsCount.innerText();
+    console.log(`Records count after reset1: ${text.match(/\d+/)?.[0]}`);
+});
+
+
+
+
+
+Then('User deletes all records in the Employee List page', async function (this: CustomWorld) {
+  
+    // 1. click Delete check box for all records
+  await this.PIMPage.deleteCheckbox.click();
+
+     // 2. click Delete Selected
+  await this.PIMPage.deleteSelectedButton.click();
+
+  // 3. wait for the popup's "Yes, Delete" button to appear
+  await this.PIMPage.confirmDeleteButton.waitFor({ state: 'visible' });
+
+  // 4. click Yes, Delete
+  await this.PIMPage.confirmDeleteButton.click();
+
+  // 5. wait for the popup to close
+  await this.PIMPage.confirmDeleteButton.waitFor({ state: 'hidden' });
+
+ 
+});
+
+Then('Assert that successfully deleted message is displayed in the Employee List page', async function (this: CustomWorld) {
+
+   // 6.Assert that Successfully Deleted message is displayed
+  const successMessage = this.PIMPage.page.locator('.oxd-toast-content .oxd-text--toast-message');
+  await expect(successMessage).toBeVisible({ timeout: 5000 });
+
+});
+    
+
+
+
+
 Then('Search with non-existing employee name {string} in the Employee List'
   , async function (this: CustomWorld, employeeName: string) {
   await this.PIMPage.searchEmployeeNonExisting(employeeName);
