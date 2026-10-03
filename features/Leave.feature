@@ -14,7 +14,7 @@ Scenario Outline: Create a new Leave Type and assert that the Leave Type is crea
 
 Examples:
       | leavename |
-      | Maternity33 Leave |
+      | Maternity4563 Leave |
 
 
 @Sanity2

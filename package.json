@@ -11,7 +11,9 @@
     "cucumberSmoke": "npx cucumber-js --tags \"@Smoke\" --retry 1 --exit --format html:cucumber-report.html",
     "cucumberSanity": "npx cucumber-js --tags \"@Sanity\" --retry 1 --exit --format html:cucumber-report.html",
     "cucumberSmoke2": "npx cucumber-js --tags \"@Smoke2\" --retry 1 --exit --format html:cucumber-report.html",
-    "cucumberSanity2": "npx cucumber-js --tags \"@Sanity2\" --retry 1 --exit --format html:cucumber-report.html"
+    "cucumberSanity2": "npx cucumber-js --tags \"@Sanity2\" --retry 1 --exit --format html:cucumber-report.html",
+    "cucumberRegression2": "npx cucumber-js --tags \"@Regression2\" --retry 1 --exit --format html:cucumber-report.html"
+
   },
   "keywords": [],
   "author": "",
