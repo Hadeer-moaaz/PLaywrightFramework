@@ -14,7 +14,7 @@ Scenario Outline: Create a new employee and search for it in the Employee List p
 
     Examples:
       | firstname | lastname | employeeId |employeename|
-      | David|  Omar|  67895|  David Omar| 
+      | David|  Omar|  674534895|  David Omar| 
 
 @Sanity
  Scenario Outline: Search for an non-existing employee in the Employee List page.
