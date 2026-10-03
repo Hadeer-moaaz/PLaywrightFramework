@@ -3,6 +3,8 @@ import { chromium, type Browser } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { dashboardPage } from '../pages/dashboardPage';
 import { PIMPage } from '../pages/PIMPage';
+import {LeavePage} from '../pages/LeavePage';
+
 import type { CustomWorld } from './world';
 
 let browser: Browser;
@@ -24,6 +26,7 @@ Before(async function (this: CustomWorld) {
   this.loginPage = new LoginPage(this.page);
   this.dashboardPage = new dashboardPage(this.page);
   this.PIMPage = new PIMPage(this.page);
+  this.LeavePage = new LeavePage(this.page);
 
 });
 

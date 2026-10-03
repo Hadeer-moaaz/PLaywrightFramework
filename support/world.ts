@@ -3,6 +3,7 @@ import type { Browser, BrowserContext, Page } from '@playwright/test';
 import type { LoginPage } from '../pages/LoginPage';
 import type { dashboardPage } from '../pages/dashboardPage';
 import type { PIMPage } from '../pages/PIMPage';
+import type { LeavePage } from '../pages/LeavePage';
 
 export class CustomWorld extends World {
   browser!: Browser;
@@ -11,7 +12,8 @@ export class CustomWorld extends World {
   loginPage!: LoginPage;
   dashboardPage!: dashboardPage;
   PIMPage!: PIMPage;
-  
+  LeavePage!: LeavePage;
+
   constructor(options: IWorldOptions) {
     super(options);
   }

@@ -47,22 +47,19 @@ get orangehrmBackgroundContainer(){
 get resetButton() {
     return this.page.getByRole('button', { name: 'Reset' });
 }
-
 get recordsCount(){
     return this.page.locator('span.oxd-text--span', { hasText: 'Records Found' });
 }
-
 get deleteCheckbox() {
     return this.page.locator('.oxd-checkbox-input .oxd-icon').first();
 }
-
 get deleteSelectedButton() {
     return this.page.getByRole('button', { name: 'Delete Selected' });
 }
-
 get confirmDeleteButton() {
     return this.page.getByRole('button', { name: 'Yes, Delete' });
 }   
+
 
 // functions
 async verifyNoRecordsFoundIsDisplayed() {

@@ -7,7 +7,7 @@ Feature: OrangeHRM authentication
   Scenario: Login with a valid credentials
     Given User navigates to OrangeHRM login page
     When User login with a valid credentials
-    Then The dashboard is displayed
+    Then The dashboard and the url are displayed
 
   Scenario Outline: login is rejected when credentials are missing
     Given User navigates to OrangeHRM login page

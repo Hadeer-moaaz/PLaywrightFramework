@@ -17,7 +17,7 @@ When('User submit the login with username {string} and password {string}',
   },
 );
 
-Then('The dashboard is displayed', async function (this: CustomWorld) {
+Then('The dashboard and the url are displayed', async function (this: CustomWorld) {
   await expect(this.loginPage.page).toHaveURL(`${loginData.baseUrl}/dashboard/index`);
   await expect(this.loginPage.dashboardLogo).toBeVisible();
 });
