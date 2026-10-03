@@ -5,11 +5,11 @@ export class LoginPage {
 
   // locators
   get usernameInput() {
-    return this.page.getByPlaceholder('Username');
+    return this.page.locator('input[name="username"]');
   }
 
   get passwordInput() {
-    return this.page.getByPlaceholder('Password');
+    return this.page.locator('input[name="password"]');
   }
 
   get loginButton() {

@@ -12,7 +12,9 @@ let browser: Browser;
 setDefaultTimeout(30_000);
 
 BeforeAll(async function () {
-  browser = await chromium.launch({ headless: process.env.CI ? true : false });
+  browser = await chromium.launch({
+    headless: process.env.CI ? true : false,
+  });
 });
 
 AfterAll(async function () {

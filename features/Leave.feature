@@ -14,7 +14,7 @@ Scenario Outline: Create a new Leave Type and assert that the Leave Type is crea
 
 Examples:
       | leavename |
-      | Maternity4563 Leave |
+      | Maternity4563rte Leave |
 
 
 @Sanity2
@@ -32,3 +32,17 @@ Scenario Outline: Create an existing Leave Type and assert that Already exists m
 Examples:
       | leavename |
       | CAN - Bereavement   |
+
+@Sanity2
+Scenario Outline: Assign a Leave Type to an employee and assert that the Leave Type is assigned successfully.
+
+    Given User navigates to OrangeHRM login page
+    When User login with a valid credentials
+    When User navigates to Leave Page   
+    Then Click on Assign Leave Tab 
+    And Fill the Assign Leave details with "<EmployeeName>" and "<Comments>" and "<FromDate>" and "<ToDate>" and click on Assign button
+
+
+Examples:
+      | EmployeeName | Comments | FromDate | ToDate |
+      | A     | Test     | 2024-10-06 | 2024-10-07 |
